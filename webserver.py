@@ -2,36 +2,20 @@ import network
 from time import sleep
 import sensor
 import socket
+import wifi
 
 def web():
-    wifi = network.WLAN(network.STA_IF)
-    wifi.active(True)
-    redes = wifi.scan()
-
-    for red in redes:
-        print(red[0].decode())
-
-    ssid = "red2"
-    contraseña = "12345678"
-
-    wifi.connect(ssid, contraseña)
-    while not wifi.isconnected():
-        print(".", end="")
-        sleep(1)
-
-    print(wifi.ifconfig())
-
-
+    
+    wifi.conectar()
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind(('', 80))
     s.listen(5)
-
-    temp, hum =sensor.recibir()
-
    
     while True:
-    
+        
+        temp, hum =sensor.recibir()
+        
         conn, addr = s.accept()
         print("Got connection from %s" % str(addr))
     
