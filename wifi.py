@@ -10,7 +10,8 @@ def conectar():
         ssid2 = "BATMAN"
         contraseña2 = "BATSH8213gh"
         
-      #Si no hay conexión, activar wifi y conectar con el nombre de la red y su contraseña
+      #Si no hay conexión, activar wifi y conectar
+      #con el nombre de la red y su contraseña
         if not wifi.isconnected():
             wifi.active(True)
             wifi.connect(ssid, contraseña)

@@ -7,7 +7,8 @@ import urequests
 def web():
     """Servidor web para mostrar los datos de los sensores de manera local"""
     wifi.conectar()
-
+    #esto para especificar una ip y se deja en blanco para que la tome
+    #automaticamente y se le asigna un puerto
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind(('', 80))
     s.listen(5)
